@@ -1,0 +1,7 @@
+[Server]
+    addr = "0.0.0.0:9004"
+    timeout = "1s"
+
+[Client]
+    addr = "0.0.0.0:9003"
+    timeout = "1s"
