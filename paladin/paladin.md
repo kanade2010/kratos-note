@@ -130,7 +130,7 @@ main.main()
 I:\VSProject\kratos-note\paladin\paladin\cmd>
 ```
 
-会发现直接运行时跑步懂得，因为这时候找不到配置文件，因为这时候我们没有调用kratos run，paladin找不到配置目录。
+会发现直接运行时跑不起来的，因为这时候找不到配置文件，因为这时候我们没有调用kratos run，paladin找不到配置目录。
 
 实际paladin里面会有一个confPath变量，主函数做paladin.init()的时候会做flag注入。也方便了开发环境开发人员自行做配置修改。
 ```go
@@ -224,6 +224,8 @@ func (s *Service) Test() {
 
 通过环境变量注入，例如：APP_ID/DEPLOY_ENV/ZONE/HOSTNAME，然后通过paladin实现远程配置中心SDK进行配合使用。
 
+目前只可以看到这个步骤是在Init()的时候做的，paladin本质是个客户端包，在不知道服务端实现的情况下暂时没找到样例，有机会遇见再补上。
+
 ```go
 // Init init config client.
 // If confPath is set, it inits file client by default
@@ -258,6 +260,6 @@ func Init(args ...interface{}) (err error) {
 }
 ```
 
-体感paladin使用舒适度的挺不错、
+体感paladin使用舒适度还是挺不错的、
 
 > 断剑重铸之日，骑士归来之时
